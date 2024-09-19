@@ -6,11 +6,11 @@ export const TransactionsContainer = styled.main`
   margin: 4rem auto 0;
   padding: 0 1.5rem;
 `;
+
 export const TransactionsTable = styled.table`
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 0.5rem;
-  
 
   th {
     font-weight: 400;
@@ -37,6 +37,7 @@ export const TransactionsTable = styled.table`
 interface PriceHighlightProps {
     variant: "income" | "outcome";
   }
+  
   export const PriceHighlight = styled.span<PriceHighlightProps>`
     color: ${props => props.variant === "income" ? props.theme["green-300"] : props.theme["red-300"]};
   `;
