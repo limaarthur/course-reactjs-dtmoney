@@ -5,29 +5,26 @@ export const Container = styled.form`
         font-size: 1.5rem;
         margin-bottom: 2rem;
     }
-
+    
     input {
         width: 100%;
         padding: 0 1.5rem;
         height: 4rem;
-
         border-radius: 0.25rem;
         border: 0;
         background: ${props => props.theme["gray-900"]};
         color: ${props => props.theme["gray-300"]};
-
         font-weight: 400;
         font-size: 1rem;
         
         &::placeholder {
             color: ${props => props.theme["gray-500"]};
       }
-
       & + input {
         margin-top: 1rem;
       }
     }
-
+    
     button[type="submit"] {
         width: 100%;
         padding: 0 1.5rem;
@@ -40,7 +37,6 @@ export const Container = styled.form`
         font-weight: 600;
         margin-top: 1.5rem;
         cursor: pointer;
-
         &:hover {
             background: ${props => props.theme["green-700"]};
             transition: background-color 0.2s;
@@ -60,7 +56,6 @@ export const TransactionTypeContainer = styled.div`
         padding: 1rem;
         gap: 0.5rem;
         border-radius: 6px;
-
         display: flex;
         align-items: center;
         justify-content: center;
