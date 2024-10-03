@@ -11,6 +11,7 @@ export const TransactionsTable = styled.table`
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 0.5rem;
+  color: ${props => props.theme["gray-300"]};
 
   th {
     font-weight: 400;
