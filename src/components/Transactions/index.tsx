@@ -1,11 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { PriceHighlight, TransactionsContainer, TransactionsTable } from "./styles";
 import { api } from "../../services/api";
 
+interface Transaction {
+    id: number;
+    title: string;
+    amount: number;
+    type: string;
+    category: string;
+    createdAt: string;
+}
+
 export function Transactions() {
+    const [transactions, setTransactions] = useState<Transaction[]>([]);
     useEffect(() => {
         api.get('transactions')
-        .then(response => console.log(response.data))
+        .then(response => setTransactions(response.data.transactions))
     }, []);
 
     return (
@@ -18,26 +28,20 @@ export function Transactions() {
                     <th>Data</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Densenvolvimento de website</td>
-                        <td>
-                            <PriceHighlight variant="income">
-                                R$ 12.000,00
-                            </PriceHighlight>
-                        </td>
-                        <td>Venda</td>
-                        <td>13/04/2022</td>
-                    </tr>
-                    <tr>
-                        <td>Hamburguer</td>
-                        <td>
-                            <PriceHighlight variant="outcome">
-                                - R$ 59,00
-                            </PriceHighlight>
-                        </td>
-                        <td>Alimentação</td>
-                        <td>10/04/2022</td>
-                    </tr>
+                   {transactions.map(transaction => {
+                    return(
+                        <tr key={transaction.id}>
+                            <td>{transaction.title}</td>
+                            <td>
+                                <PriceHighlight variant="income">
+                                    {transaction.amount}
+                                </PriceHighlight>
+                            </td>
+                            <td>{transaction.category}</td>
+                            <td>{transaction.createdAt}</td>
+                        </tr>
+                    );
+                    })}
                 </tbody>
             </TransactionsTable>
         </TransactionsContainer>
