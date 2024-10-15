@@ -34,11 +34,18 @@ export function Transactions() {
                             <td>{transaction.title}</td>
                             <td>
                                 <PriceHighlight variant="income">
-                                    {transaction.amount}
+                                    {new Intl.NumberFormat('pt-BR', {
+                                        style: 'currency',
+                                        currency: 'BRL'
+                                    }).format(transaction.amount)}
                                 </PriceHighlight>
                             </td>
                             <td>{transaction.category}</td>
-                            <td>{transaction.createdAt}</td>
+                            <td>
+                                {new Intl.DateTimeFormat('pt-BR').format(
+                                    new Date(transaction.createdAt)
+                                )}
+                            </td>
                         </tr>
                     );
                     })}
