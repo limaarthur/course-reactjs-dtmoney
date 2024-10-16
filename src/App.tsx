@@ -7,7 +7,7 @@ import { Summary } from "./components/Summary";
 import { Transactions } from "./components/Transactions";
 import { SearchForm } from "./components/SearchForm";
 import { NewTransactionModal } from "./components/NewTransactionModal";
-import { TransactionsContext } from "./TransactionsContext";
+import { TransactionsProvider } from "./TransactionsContext";
 import { GlobalStyle } from "./styles/global";
 
 Modal.setAppElement('#root');
@@ -24,7 +24,7 @@ export function App() {
   }
 
   return (
-    <TransactionsContext.Provider value={[]}>
+    <TransactionsProvider>
       <ThemeProvider theme={defaultTheme}>
         <Header onOpenNewTransactionModal={handleOpenNewTransactionModal}/>
         <Summary />
@@ -36,6 +36,6 @@ export function App() {
         />
         <GlobalStyle />
       </ThemeProvider>
-    </TransactionsContext.Provider>
+    </TransactionsProvider>
   )
 }
