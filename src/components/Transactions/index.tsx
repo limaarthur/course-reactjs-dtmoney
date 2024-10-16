@@ -3,7 +3,7 @@ import { PriceHighlight, TransactionsContainer, TransactionsTable } from "./styl
 import { TransactionsContext } from "../../TransactionsContext";
 
 export function Transactions() {
-    const transactions = useContext(TransactionsContext);
+    const { transactions } = useContext(TransactionsContext);
 
     return (
         <TransactionsContainer>
